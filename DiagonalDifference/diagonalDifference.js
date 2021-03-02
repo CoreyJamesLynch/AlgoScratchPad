@@ -28,7 +28,7 @@ const diagonalDifference = (matrix) => {
   let rightCounter = 0;
   let leftCounter = 0;
   for (let idx = 0; idx < matrix.length; idx++) {
-    rightCounter += array[idx];
+    rightCounter += matrix[idx];
   }
 };
 
