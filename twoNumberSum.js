@@ -25,7 +25,7 @@ PSEUDO
       -> else add x to object
   -> return []
 */
-
+// MY SOLUTION
 const twoNumberSum = (array, targetSum) => {
   const numCollection = {};
   for (let idx = 0; idx < array.length; idx += 1) {
@@ -36,12 +36,15 @@ const twoNumberSum = (array, targetSum) => {
     else numCollection[array[idx]] = true;
   }
   return [];
-}
+};
 
 // TESTS
 // console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
 // -> [-1, 11]
+const start = new Date();
 console.log(twoNumberSum([-21, 301, 12, 4, 65, 56, 210, 356, 9, -47], 164));
+const end = new Date();
+console.log(`Execution time: ${end - start} ms`);
 // -> [-1, 11]
 // console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 15));
 // -> [-1, 11]
