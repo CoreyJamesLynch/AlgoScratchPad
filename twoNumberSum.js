@@ -27,7 +27,7 @@ PSEUDO
 //     else numCollection[array[idx]] = true;
 //   }
 //   return [];
-// }; // 11ms
+// }; // 7.2 ms average
 // Time: O(n) linear, one time through array | Space: O(n), creating object
 
 // THEIR SOLUTION 1
@@ -42,9 +42,45 @@ PSEUDO
 //     }
 //   }
 //   return [];
-// } // 13ms
+// } // 8 ms average
 // Time: O(n^2) exponential, array.length times through array
 // Space: O(1) constant, nothing is being created relative to anything else
+
+// THEIR SOLUTION 2
+// function twoNumberSum(array, targetSum) {
+//   const nums = {};
+//   for (const num of array) {
+//     const potentialMatch = targetSum - num;
+//     if(potentialMatch in nums){
+//       return [potentialMatch, num];
+//     } else {
+//       nums[num] = true;
+//     }
+//   }
+//   return [];
+// } // 7.6 ms average
+// Time: O(n) linear, one time through array
+// Space: O(n) linear, one object created relative to array
+
+// THEIR SOLUTION 3
+// function twoNumberSum(array, targetSum) {
+//   array.sort((a, b) => a - b);
+//   let left = 0;
+//   let right = array.length - 1;
+//   while (left < right) {
+//     const currentSum = array[left] + array[right];
+//     if (currentSum === targetSum) {
+//       return [array[left], array[right]];
+//     } else if (currentSum < targetSum) {
+//       left++;
+//     } else if (currentSum > targetSum) {
+//       right--;
+//     }
+//   }
+//   return [];
+// } // 7.8 ms average
+// Time: O(n log(n)) Logarithmic, sort mutates array in place then we go once through array.
+// Space: O(1) Constant, nothing is being created relative to array. 
 
 // TESTS
 const start = new Date();
