@@ -80,7 +80,21 @@ PSEUDO
 //   return [];
 // } // 7.8 ms average
 // Time: O(n log(n)) Logarithmic, sort mutates array in place then we go once through array.
-// Space: O(1) Constant, nothing is being created relative to array. 
+// Space: O(1) Constant, nothing is being created relative to array.
+
+// REFACTOR
+const twoNumberSum = (array, targetSum) => {
+  const numCollection = {};
+  for (let idx = 0; idx < array.length; idx += 1) {
+    const target = Object.keys(numCollection).find(
+      (key) => key === (targetSum - array[idx]).toString(),
+    );
+    if (target) return [parseInt(target), array[idx]];
+    else numCollection[array[idx]] = true;
+  }
+  return [];
+}; // 7.2 ms average
+// Time: O(n) linear, one time through array | Space: O(n), creating object
 
 // TESTS
 const start = new Date();
