@@ -49,12 +49,23 @@ function isValidSubSequence(array, sequence) {
   let arrIdx = 0;
   let seqIdx = 0;
   while (arrIdx < array.length && seqIdx < sequence.length) {
-    if(array[arrIdx] === sequence[seqIdx]) seqIdx++;
+    if (array[arrIdx] === sequence[seqIdx]) seqIdx++;
     arrIdx++;
   }
   return seqIdx === sequence.length;
 } // 6.2ms average
 
+// THEIR SOLUTION 2
+// Space: O(1) constant, nothing is being created related to the size of input.
+// Time: O(n) linear, one time through input.
+function isValidSubSequence(array, sequence) {
+  let seqIdx = 0;
+  for (const value of array) {
+    if (seqIdx === sequence.length) break;
+    if (sequence[seqIdx] === value) seqIdx++;
+  }
+  return seqIdx === sequence.length;
+} // 6.8ms average
 
 // TESTS
 const start = new Date(); // Add tests below this line
