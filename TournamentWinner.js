@@ -6,54 +6,59 @@
 // there will always be atleast two teams in the tournament
 // winner of the tournament is the team with the most points
 
-// MY SOLUTION -> Not finished
-// function tournamentWinner(competitions, results) {
-// 	// pointTracker = {};
-// 	const pointTracker = {};
-//   // win = 3 points
-// 	// loss = 0 points
-// 	for(let idx = 0; idx < competitions.length; idx += 1){
-// 		let winner = competitions[idx][results[idx]]
-// 		pointTracker[winner] ? (pointTracker[winner] += 3) : (pointTracker[winner] = 3)
-// 		// console.log(pointTracker)
-// 	}
-// 	// one pointer for both arrays
-// 	// add winning team to point tracker add 3 points to it's value
+// MY SOLUTION 
+// Time Complexity: O(n) linear, where n is the number of competitions and results. This function only requires one iteration through and so it scales relative to the input arrays.
+// Space Complexity: O(n) linear where n is the number of individual teams found in the competitions input. The number of teams will increase in relation to the size of the competitions input.
+const tournamentWinner = (competitions, results) => {
+  let bestTeam = '';
+  const comparison = {};
 
-// 	// winner = Math.max(Object.values(pointTracker))
-// 	let firstPlace = Object.entries(pointTracker)
-// 	console.log(firstPlace)
-// 	// need another iteration here
-//   return `${firstPlace}`;
-// 	// return the winning team (team with the most points in pointTracker)
-// }
+  for (let idx = 0; idx < competitions.length; idx += 1) {
+    let roundWinner = '';
+
+    if (results[idx] === 1) {
+      roundWinner = competitions[idx][0];
+    } else roundWinner = competitions[idx][1];
+
+    comparison[roundWinner]
+      ? (comparison[roundWinner] += 3)
+      : (comparison[roundWinner] = 3);
+
+    if (bestTeam) {
+      if (comparison[roundWinner] > comparison[bestTeam]) {
+        bestTeam = roundWinner;
+      }
+    } else bestTeam = roundWinner;
+  }
+  return bestTeam;
+}; // 6.4ms average
 
 // THERE SOLUTION 1
 // COMPLEXITY Time: O(n) linear, iterating through input arrays once | Space: O(k) constant, not data structure being created is relative in size to the input.
-const HOME_TEAM_WON = 1;
-function tournamentWinner(competitions, results) {
-  let currentBestTeam = '';
-  const scores = { [currentBestTeam]: 0 };
+// const HOME_TEAM_WON = 1;
+// function tournamentWinner(competitions, results) {
+//   let currentBestTeam = '';
+//   const scores = { [currentBestTeam]: 0 };
 
-  for (let idx = 0; idx < competitions.length; idx++) {
-    const result = results[idx];
-    const [homeTeam, awayTeam] = competitions[idx];
+//   for (let idx = 0; idx < competitions.length; idx++) {
+//     const result = results[idx];
+//     const [homeTeam, awayTeam] = competitions[idx];
 
-    const winningTeam = result === HOME_TEAM_WON ? homeTeam : awayTeam;
+//     const winningTeam = result === HOME_TEAM_WON ? homeTeam : awayTeam;
 
-    updateScores(winningTeam, 3, scores);
+//     updateScores(winningTeam, 3, scores);
 
-    if (scores[winningTeam] > scores[currentBestTeam]) {
-      currentBestTeam = winningTeam;
-    }
-  }
-  return currentBestTeam;
-} // 6.2ms average
+//     if (scores[winningTeam] > scores[currentBestTeam]) {
+//       currentBestTeam = winningTeam;
+//     }
+//   }
+//   return currentBestTeam;
+// } // 6.2ms average
 
-function updateScores(team, points, scores) {
-  if (!(team in scores)) scores[team] = 0;
-  scores[team] += points;
-}
+// function updateScores(team, points, scores) {
+//   if (!(team in scores)) scores[team] = 0;
+//   scores[team] += points;
+// }
 
 // TESTS
 const start = new Date(); // Add tests below this line
