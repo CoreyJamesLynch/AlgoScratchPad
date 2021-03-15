@@ -24,32 +24,39 @@
 // Explanation 4*4*4*4+3*3*3*3+2*2*2*2+1*1*1*1 = 354
 
 const narcissistNumber = (int) => {
+  let comparisonNum = 0;
   // split int into array of ints
   const digitArray = Array.from(String(int), Number);
   // iterate through array
-    // change each int of array to int to pow of array length
-      // find sum of new int array
+  for (let idx = 0; idx < digitArray.length; idx += 1) {
+    // add int^digitArray.length to comparisonNum total
+    comparisonNum += Math.pow(digitArray[idx], digitArray.length);
+  }
   // compare to int input and return conditional result
-  return digitArray;
+  if (comparisonNum === int) {
+    return `${int} is a narcissist number.`;
+  } else {
+    return `${int} is not a narcissist number.`;
+  }
 };
 
 //TESTS
 const start = new Date(); // Add tests below this line
 
 // console.log(narcissistNumber(0));
-// -> 0 is an narcissist number.
+// -> 0 is a narcissist number.
 
 // console.log(narcissistNumber(371));
-// -> 371 is an narcissist number.
+// -> 371 is a narcissist number.
 
 console.log(narcissistNumber(1634));
-// -> 1634 is an narcissist number.
+// -> 1634 is a narcissist number.
 
 // console.log(narcissistNumber(321));
-// -> 321 is not an narcissist number.
+// -> 321 is not a narcissist number.
 
 // console.log(narcissistNumber(4321));
-// -> 4321 is not an narcissist number.
+// -> 4321 is not a narcissist number.
 
 const end = new Date(); // Add tests above this line
 console.log(`Execution time: ${end - start} ms`);
