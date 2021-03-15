@@ -25,19 +25,14 @@
 
 const narcissistNumber = (int) => {
   let comparisonNum = 0;
-  // split int into array of ints
   const digitArray = Array.from(String(int), Number);
-  // iterate through array
+
   for (let idx = 0; idx < digitArray.length; idx += 1) {
-    // add int^digitArray.length to comparisonNum total
     comparisonNum += Math.pow(digitArray[idx], digitArray.length);
   }
-  // compare to int input and return conditional result
-  if (comparisonNum === int) {
-    return `${int} is a narcissist number.`;
-  } else {
-    return `${int} is not a narcissist number.`;
-  }
+  
+  if (comparisonNum === int) return `${int} is a narcissist number.`;
+  else return `${int} is not a narcissist number.`;
 };
 
 //TESTS
