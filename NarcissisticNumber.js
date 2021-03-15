@@ -30,7 +30,7 @@ const narcissistNumber = (int) => {
   for (let idx = 0; idx < digitArray.length; idx += 1) {
     comparisonNum += Math.pow(digitArray[idx], digitArray.length);
   }
-  
+
   if (comparisonNum === int) return `${int} is a narcissist number.`;
   else return `${int} is not a narcissist number.`;
 };
