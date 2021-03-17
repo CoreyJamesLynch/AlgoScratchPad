@@ -33,7 +33,7 @@ const tournamentWinner = (competitions, results) => {
   return bestTeam;
 }; // 6.4ms average
 
-// THERE SOLUTION 1
+// THEIR SOLUTION 1
 // COMPLEXITY Time: O(n) linear, iterating through input arrays once | Space: O(k) constant, not data structure being created is relative in size to the input.
 // const HOME_TEAM_WON = 1;
 // function tournamentWinner(competitions, results) {
