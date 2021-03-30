@@ -7,6 +7,34 @@
 # The second argument will be an integer representing a persons target time in minutes to complete the workout.
 # wodPace should return an array of floats representing the latest possible time on the clock the athlete will need to finish before to achieve their target time.
 
+def wodPace (workout, targetTime):
+  pace = []
+  elapsedTime = 0
+  reps = sum(workout)
+  targetSeconds = int(targetTime * 60)
+  repTime = targetSeconds / reps
+
+  for reps in workout:
+    elapsedTime += reps * repTime
+    formattedTime = timeFormatter(elapsedTime)
+    pace.append(formattedTime)
+  
+  return pace
+
+def timeFormatter (seconds):
+  min = int(seconds / 60)
+  sec = int(seconds % 60)
+
+  if(sec == 0): sec = '00'
+
+  time = f"{str(min)}:{str(sec)}"
+
+  return time
+
+# TESTS
+print(wodPace([25, 35, 45, 55, 65], 15.0))
+# -> ['1:40',' 4:00', '7:00', '10:40', '15:00']
+
 # EXAMPLE 
 # wodPace([25, 35, 45, 55, 65], 15) -> [1.40, 4.00, 7.00, 10.40, 15.00]
 
