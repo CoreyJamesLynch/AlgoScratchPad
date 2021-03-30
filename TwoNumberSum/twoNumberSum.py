@@ -7,11 +7,26 @@
 # there will not be more than one target pair within the input array.
 # a number cannot be summed with itself to achieve the target sum.
 
+# BRUTE FORCE METHOD
+def twoNumberSum(array, targetSum):
+  # save current sum
+  currentSum = 0
+  # iterate array
+  for integer in array:
+    # idx to current sum
+    currentSum = integer
+    # iterate array
+    
+      # test if current sum and each other value equal target sum
+      # if true return [currentSum, target Sum]
+    # return []
+    return []
 
 # TESTS
-import timeit
-print(timeit.timeit(twoNumberSum(
-    [3, 5, -4, 8, 11, 1, -1, 6], 10), number=10000))
+from time import process_time_ns
+start = process_time_ns()
+
+print(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
 # -> [-1, 11]
 
 # print(twoNumberSum([-21, 301, 12, 4, 65, 56, 210, 356, 9, -47], 164))
@@ -25,3 +40,6 @@ print(timeit.timeit(twoNumberSum(
 
 # print(twoNumberSum([15], 15))
 # -> []
+
+end = process_time_ns()
+print("Time elapsed:", end - start,"ns")
