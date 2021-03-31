@@ -2,7 +2,7 @@
 Write a function that takes in a non-empty array of integers that are sorted in ascending order and returns a new array of the same length with the squares of the original integers also sorted in ascending order.
 */
 
-// MY SOLUTION
+// MY SOLUTION 1
 // // Non-empty ascending order
 // function sortedSquaredArray(array) {
 //   // var to hold new array of squared vals
@@ -18,7 +18,7 @@ Write a function that takes in a non-empty array of integers that are sorted in 
 // 	// return var w/ new array of same length in ascending order
 // }
 
-// REFACTOR
+// MY SOLUTION 2
 // Complexity Time: O(n log n), I am creating a new output array relative to the input array O(n) then sorting output array O(log n) | Space: O(n), Creating a new output array relative to the input array.
 // function sortedSquaredArray(array) {
 // 	const newArr = [];
