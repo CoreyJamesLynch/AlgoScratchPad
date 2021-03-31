@@ -21,26 +21,26 @@ PSEUDO
 // MY SOLUTION
 // Space: O(1) constant, nothing is being created related to size of input.
 // Time: O(n) linear, one time through inputs.
-const isValidSubsequence = (firstArray, secondArray) => {
-  if (firstArray.length < secondArray.length) {
-    return false;
-  }
-  let firstArrayIdx = 0;
-  let secondArrayIdx = 0;
-  while (
-    secondArrayIdx < secondArray.length &&
-    firstArrayIdx < firstArray.length
-  ) {
-    if (firstArray[firstArrayIdx] !== secondArray[secondArrayIdx]) {
-      firstArrayIdx += 1;
-    } else {
-      secondArrayIdx += 1;
-      firstArrayIdx += 1;
-    }
-  }
-  if (secondArrayIdx >= secondArray.length) return true;
-  return false;
-}; // 7ms average
+// const isValidSubsequence = (firstArray, secondArray) => {
+//   if (firstArray.length < secondArray.length) {
+//     return false;
+//   }
+//   let firstArrayIdx = 0;
+//   let secondArrayIdx = 0;
+//   while (
+//     secondArrayIdx < secondArray.length &&
+//     firstArrayIdx < firstArray.length
+//   ) {
+//     if (firstArray[firstArrayIdx] !== secondArray[secondArrayIdx]) {
+//       firstArrayIdx += 1;
+//     } else {
+//       secondArrayIdx += 1;
+//       firstArrayIdx += 1;
+//     }
+//   }
+//   if (secondArrayIdx >= secondArray.length) return true;
+//   return false;
+// }; // 7ms average
 
 // THEIR SOLUTION 1
 // Space: O(1) constant, nothing is being created related to the size of input.
@@ -58,14 +58,14 @@ const isValidSubsequence = (firstArray, secondArray) => {
 // THEIR SOLUTION 2
 // Space: O(1) constant, nothing is being created related to the size of input.
 // Time: O(n) linear, one time through input.
-// function isValidSubsequence(array, sequence) {
-//   let seqIdx = 0;
-//   for (const value of array) {
-//     if (seqIdx === sequence.length) break;
-//     if (sequence[seqIdx] === value) seqIdx++;
-//   }
-//   return seqIdx === sequence.length;
-// } // 7ms average
+function isValidSubsequence(array, sequence) {
+  let seqIdx = 0;
+  for (const value of array) {
+    if (seqIdx === sequence.length) break;
+    if (sequence[seqIdx] === value) seqIdx++;
+  }
+  return seqIdx === sequence.length;
+} // 7ms average
 
 // TESTS
 const start = new Date(); // Add tests below this line
