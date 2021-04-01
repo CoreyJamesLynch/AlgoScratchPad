@@ -1,5 +1,7 @@
 {
   "cSpell.words": [
     "probs"
-  ]
+  ],
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true
 }
