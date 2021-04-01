@@ -11,17 +11,33 @@ def sortedSquaredArray(array):
 
 
 # Tests
-# def testSortedSquareArray():
-start = process_time_ns()
-# if(sortedSquaredArray())
+def testSortedSquareArray():
+    start = process_time_ns()
+    if(sortedSquaredArray([1, 2, 3, 5, 6, 8, 9]) == [1, 4, 9, 25, 36, 64, 81]):
+        print(True)
+    else:
+        print(f"returned {sortedSquaredArray([1, 2, 3, 5, 6, 8, 9])}")
+        print("expected [1, 4, 9, 25, 36, 64,81]")
+
+    if(sortedSquaredArray([1]) == [1]):
+        print(True)
+    else:
+        print(f"returned {sortedSquaredArray([1])}")
+        print("expected [1]")
+
+    if(sortedSquaredArray([1, 4]) == [1, 16]):
+        print(True)
+    else:
+        print(f"returned {sortedSquaredArray([1, 4])}")
+        print("expected [1, 16]")
+
+    # if(sortedSquaredArray([1, 4]) == [1, 16]):
+    #     print(True)
+    # else:
+    #     print(f"returned {sortedSquaredArray([1, 4])}")
+    #     print("expected [1, 16]")
 
 
-# print(sortedSquaredArray([1, 2, 3, 5, 6, 8, 9]))
-# -> [1, 4, 9, 25, 36, 64, 81]
-# print(sortedSquaredArray([1]))
-# -> [1]
-# print(sortedSquaredArray([1, 4]))
-# -> [1, 4]
 # print(sortedSquaredArray([1, 2, 3, 4, 5]))
 # -> [1, 4, 9, 16, 25]
 # print(sortedSquaredArray([0]))
@@ -49,5 +65,5 @@ start = process_time_ns()
 # print(sortedSquaredArray([-3, -2, -1]))
 # -> [1, 4, 9]
 
-end = process_time_ns()
-print("Time elapsed:", end - start, "ns")
+    end = process_time_ns()
+    print("Time elapsed:", end - start, "ns")

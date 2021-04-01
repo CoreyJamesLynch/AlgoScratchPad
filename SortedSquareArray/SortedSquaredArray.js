@@ -71,7 +71,7 @@ const start = new Date(); // Add tests below this line
 // // -> [1, 4, 9, 25, 36, 64, 81]
 // console.log(sortedSquaredArray([1]))
 // // -> [1]
-// console.log(sortedSquaredArray([1, 4]))
+console.log(sortedSquaredArray([1, 4]))
 // // -> [1, 4]
 // console.log(sortedSquaredArray([1, 2, 3, 4, 5]))
 // // -> [1, 4, 9, 16, 25]
@@ -91,7 +91,7 @@ const start = new Date(); // Add tests below this line
 // // -> [0, 25, 25, 100, 100]
 // console.log(sortedSquaredArray([-7, -3, 1, 9, 22, 30]))
 // // -> [1, 9, 49, 81, 484, 900]
-console.log(sortedSquaredArray([-50, -13, -2, -1, 0, 0, 1, 1, 2, 3, 19, 20]));
+// console.log(sortedSquaredArray([-50, -13, -2, -1, 0, 0, 1, 1, 2, 3, 19, 20]));
 // -> [0, 0, 1, 1, 1, 4, 4, 9, 169, 361, 400, 2500]
 // console.log(sortedSquaredArray([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))
 // // -> [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
