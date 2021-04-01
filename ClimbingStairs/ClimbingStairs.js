@@ -22,9 +22,15 @@
 // CONSTRAINTS
 // 1 <= n <= 45 (n is greater than or equal to 1 and less than or equal to 45)
 
-// MY SOLUTION
+// MY SOLUTION (Not Finished yet)
 const climbStairs = (n) => {
-  return n;
+  let uniqCounter = 1;
+  let firstCombo = n - 2;
+  let remainder = firstCombo % 2
+  let finalLen = Math.ceil(n/2)
+  uniqCounter += (firstCombo + remainder + finalLen)
+  
+  return uniqCounter;
 };
 
 // TESTS
@@ -33,13 +39,14 @@ const testClimbStairs = () => {
   // input, expectedOutput, sequential testNumber
   console.log(runTest(2, 2, 1));
   console.log(runTest(3, 3, 2));
+  console.log(runTest(4, 5, 3));
 
   const end = new Date();
-  console.log(`All tests passed in: ${end - start} ms`);
+  console.log(`All tests completed in: ${end - start} ms`);
 };
 
 const runTest = (input, expectedOutput, testNumber) => {
-  let errorMessage = `Expected ${input} to be ${expectedOutput}`;
+  let errorMessage = `Test ${testNumber} Failed! Expected ${input} to be ${expectedOutput}`;
   
   if (climbStairs(input) !== expectedOutput) return errorMessage;
   else return `Test ${testNumber} Passed!`;
