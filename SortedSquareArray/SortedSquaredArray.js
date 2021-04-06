@@ -1,5 +1,7 @@
 /*
 Write a function that takes in a non-empty array of integers that are sorted in ascending order and returns a new array of the same length with the squares of the original integers also sorted in ascending order.
+
+My first foray into creating automated tests for my algorithm practice.
 */
 
 // MY SOLUTION 1
@@ -59,7 +61,7 @@ function sortedSquaredArray(array) {
       smallerValueIdx++;
     } else {
       sortedSquares[idx] = largerValue * largerValue;
-      largerValueIdx--;
+      largerValueIdx--; 
     }
   }
   return sortedSquares;
