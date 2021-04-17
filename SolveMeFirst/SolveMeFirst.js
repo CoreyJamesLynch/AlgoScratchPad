@@ -4,8 +4,10 @@
 // Return sum of intA and intB
 
 // SOLUTION
-const solveMeFirst = (intA, intB) => intA + intB
+const solveMeFirst = (intA, intB) => intA + intB;
 
 // TESTS
-console.log(solveMeFirst(2, 3))
+console.log(solveMeFirst(2, 3));
 // -> 5
+
+module.exports = solveMeFirst;
