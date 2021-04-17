@@ -1,0 +1,22 @@
+{
+  "name": "algoscratchpad",
+  "version": "1.0.0",
+  "description": "A place to algos and tests",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoreyJamesLynch/AlgoScratchPad.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoreyJamesLynch/AlgoScratchPad/issues"
+  },
+  "homepage": "https://github.com/CoreyJamesLynch/AlgoScratchPad#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
