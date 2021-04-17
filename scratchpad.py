@@ -1,11 +1,12 @@
 tests = {
-    1: [["abc", "ahbgdc"], True],
-    2: [["axc", "ahbgdc"], False],
-    3: [["abcdefghij", "abcdefghij"], True],
-    4: [["abc", "a"], False],
-    5: [["", "a"], False],
-    6: [["a", ""], False]
+    1: [[5, 7, 1, 1, 2, 3, 22], 20]
 }
 
+print(tests[1][0])
+# input
+
+print(tests[1][1])
+# expected result
+
 for test in tests:
-    print(test, tests[test][0], tests[test][1])
+    print(tests[test][0])

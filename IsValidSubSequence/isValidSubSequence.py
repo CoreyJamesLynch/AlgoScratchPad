@@ -34,12 +34,16 @@ from time import process_time_ns
 #     return seqIdx == len(sequence)
 
 # Their Solution 2
+
+
 def isValidSubsequence(array, sequence):
-  seqIdx = 0
-  for value in array:
-    if seqIdx == len(sequence): break
-    if sequence[seqIdx] == value: seqIdx += 1
-  return seqIdx == len(sequence)
+    seqIdx = 0
+    for value in array:
+        if seqIdx == len(sequence):
+            break
+        if sequence[seqIdx] == value:
+            seqIdx += 1
+    return seqIdx == len(sequence)
 
 
 # TESTS
