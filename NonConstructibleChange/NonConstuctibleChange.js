@@ -1,4 +1,3 @@
-
 /* 
 Given an array of positive integer, each representing the value of a coin, find the smallest value those coins cannot create.
 - Coins aren't unique, the same value can occur multiple times
@@ -8,55 +7,45 @@ Given an array of positive integer, each representing the value of a coin, find 
 Example -> [1, 2, 5] //-> 4
 */
 
-// MY SOLUTION (not finished)
-function nonConstructibleChange(coins) {
-  // Short-circuit -> if coins length is 0 return 1
-	if(coins.length === 0) return 1;
-	// create left pointer
-	let leftPointer = 0;
-	// create right pointer
-	let rightPointer = coins.length - 1;
-	// create sorted coins
-	let sortedCoins = coins.sort((a, b) => a - b);
-	
-	let counter = sortedCoins[0];
-	// create loop
-	while(leftPointer !== rightPointer){
-		// total === left + right
-		let total = sortedCoins[leftPointer] + sortedCoins[rightPointer];
-		console.log(total)
-		// if total === counter, reset, counter ++
-		if(total === counter || rightPointer === counter || leftPointer === counter){
-			counter += 1;
-			leftPointer = 0;
-			rightPointer = sortedCoins.length - 1;
-		}
-		// if total less than counter, left ++
-		if(total < counter) leftPointer += 1;
-		// if total greater than, right --
-		if(total > counter) rightPointer -= 1;
-	}
-	return counter;
-}
+// MY SOLUTION
+// no coins = 1 <- short-circuit
+// if the next number in the sorted array is 2 greater than the sum of all numbers so far +1, return current sum + 1
+// the input array needs to be sorted from small to large size coins
+// the sorted array needs to be iterated to find return conditions using two-pointer to compare pairs
+
+const nonConstructibleChange = (input) => {
+  if (input.length < 1) return 1;
+
+  let sortedCoins = input.sort((a, b) => a - b);
+  if (sortedCoins[0] > 1) return 1;
+
+  let currentSum = 0;
+
+  for (let idx = 0; idx < sortedCoins.length; idx += 1) {
+    currentSum += sortedCoins[idx];
+    if (sortedCoins[idx + 1] >= currentSum + 2) return currentSum + 1;
+  }
+  return currentSum + 1;
+};
 
 // THEIR SOLUTION 1
-function nonConstructibleChange(coins) {
-  coins.sort((a, b) => a - b);
+// function nonConstructibleChange(coins) {
+//   coins.sort((a, b) => a - b);
 
-  let currentChangeCreated = 0;
-  for (const coin of coins) {
-    if(coin > currentChangeCreated + 1) return currentChangeCreated + 1;
+//   let currentChangeCreated = 0;
+//   for (const coin of coins) {
+//     if(coin > currentChangeCreated + 1) return currentChangeCreated + 1;
 
-    currentChangeCreated += coin;
-  }
+//     currentChangeCreated += coin;
+//   }
 
-  return currentChangeCreated + 1;
-}
+//   return currentChangeCreated + 1;
+// }
 
 // TESTS
 const start = new Date(); // Add tests below this line
 
-console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]))
+console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]));
 //-> 20
 
 // console.log(nonConstructibleChange([1, 1, 1, 1, 1]))
@@ -94,7 +83,6 @@ console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]))
 
 // console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]))
 //-> 29
-
 
 const end = new Date(); // Add tests above this line
 console.log(`Execution time: ${end - start} ms`);

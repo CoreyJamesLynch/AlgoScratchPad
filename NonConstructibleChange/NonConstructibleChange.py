@@ -1,7 +1,10 @@
+
+
+
+
 tests = {
     1: [[5, 7, 1, 1, 2, 3, 22], 20]
 }
-
 
 def minCoinSum(coins):
     return coins
