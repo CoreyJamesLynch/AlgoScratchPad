@@ -1,5 +1,5 @@
 const solveMeFirst = require('./solveMeFirst');
 
-test(`Expects 2 + 3 to equal 5`, () => {
+test(`Properly adds two values`, () => {
   expect(solveMeFirst(2, 3)).toBe(5);
 });
