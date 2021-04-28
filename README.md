@@ -18,6 +18,10 @@
   [Tournament Winner]()
   [Two Sum](https://leetcode.com/problems/two-sum/)
   [Wod Pace](https://coreyjameslynch.medium.com/my-crossfit-open-algorithm-idea-4ac5d640cfcf)
+  [First Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
+  [Run Length Encoding](https://www.geeksforgeeks.org/run-length-encoding/)
+  [Cesar Cipher](https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/)
+  [Palindrome](https://www.educative.io/blog/algorithms-101-check-string-palindrome)
 
 ## ToDo
 
