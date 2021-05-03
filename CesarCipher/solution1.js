@@ -1,5 +1,31 @@
+const englishCharCodes = (charCode) => {
+  let englishUppercase = {};
+  let englishLowercase = {};
+
+  for (let idx = 1; idx <= 26; idx += 1) {
+    englishUppercase[64 + idx] = String.fromCharCode(64 + idx);
+    englishLowercase[96 + idx] = String.fromCharCode(96 + idx);
+  }
+
+  return (
+    charCode in englishLowercase ||
+    charCode in englishUppercase
+  )
+};
+
 const cesarCipher = (string, shift) => {
-  return [string, shift];
+  let shiftedStr = '';
+  // iterate through string
+  for (letter in string) {
+    let currentCharCode = string.charCodeAt(letter);
+    let currentChar = '';
+
+    if(englishCharCodes(currentCharCode)){
+      currentChar = String.fromCharCode(currentCharCode + (shift % 16));
+    } else currentChar = String.fromCharCode(currentCharCode);
+    shiftedStr += currentChar
+  }
+  return shiftedStr;
 };
 
 // TESTS
