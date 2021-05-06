@@ -1,14 +1,17 @@
 const closestVal = (tree, target) => {
   let nodeLength = tree.nodes.length;
   let node = tree.nodes;
+  let valDiff = null;
   let closestVal = null;
   for (let idx = 0; idx < nodeLength; idx += 1) {
     let diff = Math.abs(target - node[idx].value);
-    console.log(diff)
-    if (closestVal === null || diff < closestVal) {
-      closestVal = diff;
+    if (valDiff === null || valDiff > diff) {
+      valDiff = diff;
+      closestVal = node[idx].value;
+    } else if (valDiff === diff) {
+      closestVal = node[idx].value;
+      return closestVal;
     }
-    if (closestVal === diff) return closestVal;
   }
   return closestVal;
 };
