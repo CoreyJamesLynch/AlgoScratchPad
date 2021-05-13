@@ -1,20 +1,24 @@
-// ASCII Codes
-// a = 97
-// z = 122
-// A = 65
-// Z = 90
-
-// ->
-
 const charShift = (letter, shift) => {
   let charCode = letter.charCodeAt(0);
   if (shift > 0) {
-    for (idx = 0; idx <= shift; idx += 1) {
-      if (charCode > 90 && charCode < 97) charCode = 64;
-      if (charCode > 122) charCode = 96;
-      charCode += 1;
-    }
+    return String.fromCharCode(shiftUp(charCode, shift));
   }
+  if (shift < 0) {
+    return String.fromCharCode((shiftedCharCode = shiftDown(charCode, shift)));
+  }
+  return String.fromCharCode(charCode);
+};
+
+const shiftUp = (charCode, shift) => {
+  for (idx = 0; idx <= shift; idx += 1) {
+    if (charCode > 90 && charCode < 97) charCode = 64;
+    if (charCode > 122) charCode = 96;
+    charCode += 1;
+  }
+  return charCode;
+};
+
+const shiftDown = (charCode, shift) => {
   if (shift < 0) {
     for (idx = 0; idx >= shift; idx -= 1) {
       if (charCode < 97 && charCode > 90) charCode = 123;
@@ -22,8 +26,7 @@ const charShift = (letter, shift) => {
       charCode -= 1;
     }
   }
-  let englishLetter = String.fromCharCode(charCode);
-  return englishLetter;
+  return charCode;
 };
 
 // TESTS
