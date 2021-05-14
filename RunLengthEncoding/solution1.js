@@ -1,11 +1,26 @@
 const runLengthEncoder = (string) => {
-  return string;
+  let encodedString = '';
+  let runLengthObj = {};
+  runLengthObj[1] = string[0];
+
+  for (let idx = 1; idx < string.length; idx += 1) {
+    let currentChar = string[idx];
+    if (runLengthObj[1][0] === currentChar) {
+      runLengthObj[1] += currentChar;
+    } else {
+      encodedString += (runLengthObj[1][0] + runLengthObj[1].length);
+      runLengthObj[1] = currentChar;
+    }
+  }
+  encodedString += (runLengthObj[1][0] + runLengthObj[1].length);
+
+  return encodedString;
 };
 
 const tests = {
   1: [
     'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW',
-    '12W1B12W3B24W1B14W',
+    'W12B1W12B3W24B1W14',
   ],
   2: ['wwwwaaadexxxxxx', 'w4a3d1e1x6'],
   3: ['wwwwaaadexxxxxxywww', 'w4a3d1e1x6y1w3'],
