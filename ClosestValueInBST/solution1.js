@@ -1,18 +1,16 @@
-const closestVal = (tree, target) => {
-  let nodes = tree.nodes;
-  let valDiff = null;
-  let closestVal = null;
-  for (node in nodes) {
-    let diff = Math.abs(target - nodes[node].value);
-    if (valDiff === null || valDiff > diff) {
-      valDiff = diff;
-      closestVal = nodes[node].value;
-    } else if (valDiff === diff) {
-      closestVal = nodes[node].value;
-      return closestVal;
+const findClosestValueInBst = (tree, target) => {
+  let closest = Infinity;
+  let currentNode = tree;
+  while(currentNode !== null){
+    if(Math.abs(target - closest) > Math.abs(target - currentNode.value)){
+      closest = currentNode.value;
     }
+
+    if(currentNode.value > target) currentNode = currentNode.left;
+    else if(currentNode.value < target) currentNode = currentNode.right;
+    else break;
   }
-  return closestVal;
+  return closest
 };
 
 // TESTS
@@ -22,18 +20,41 @@ const tests = {
     {
       target: 12,
       tree: {
-        nodes: [
-          { id: '10', left: '5', right: '15', value: 10 },
-          { id: '15', left: '13', right: '22', value: 15 },
-          { id: '22', left: null, right: null, value: 22 },
-          { id: '13', left: null, right: '14', value: 13 },
-          { id: '14', left: null, right: null, value: 14 },
-          { id: '5', left: '2', right: '5-2', value: 5 },
-          { id: '5-2', left: null, right: null, value: 5 },
-          { id: '2', left: '1', right: null, value: 2 },
-          { id: '1', left: null, right: null, value: 1 },
-        ],
-        root: '10',
+        left: {
+          left: {
+            left: {
+              left: null,
+              right: null,
+              value: 1,
+            },
+            right: null,
+            value: 2,
+          },
+          right: {
+            left: null,
+            right: null,
+            value: 5,
+          },
+          value: 5,
+        },
+        right: {
+          left: {
+            left: null,
+            right: {
+              left: null,
+              right: null,
+              value: 14,
+            },
+            value: 13,
+          },
+          right: {
+            left: null,
+            right: null,
+            value: 22,
+          },
+          value: 15,
+        },
+        value: 10,
       },
     },
     13,
@@ -43,13 +64,13 @@ const tests = {
 const startTest = () => {
   const start = new Date();
 
-  testClosestVal(tests);
+  testFindClosestValueInBst(tests);
 
   const end = new Date();
   console.log(`Execution time ${end - start} ms`);
 };
 
-const testClosestVal = (tests) => {
+const testFindClosestValueInBst = (tests) => {
   for (test in tests) {
     let testId = test;
     let targetInput = tests[test][0].target;
@@ -61,7 +82,7 @@ const testClosestVal = (tests) => {
 };
 
 const runTest = (testId, targetInput, treeInput, expectedOutput) => {
-  let actualOutput = closestVal(treeInput, targetInput);
+  let actualOutput = findClosestValueInBst(treeInput, targetInput);
   let errorMsg = `Test ${testId} Failed. Expected ${actualOutput} to be ${expectedOutput}`;
 
   if (actualOutput !== expectedOutput) return errorMsg;
