@@ -13,14 +13,14 @@ func TestFindTwoThatSum(t *testing.T) {
 		// argument
 		sum int
 		// notes if sum exists in slice (-1, -1) should be returned if false
-		possible  bool
-		lowestVal int
+		possible      bool
+		lowestIdxDiff int
 	}{
 		// remember -> []int{put int slice values here}
-		{[]int{1, 2, 3, 4}, 7, true, 2},
+		{[]int{1, 2, 3, 4}, 7, true, 1}, // absolute value
 		{[]int{0, -1, 1}, 0, true, 1},
-		{[]int{0, 1, 1}, 0, false, -1},
-		{[]int{10, 1, 12, 3, 7, 2, 2, 1}, 4, true, 1},
+		{[]int{0, 1, 1}, 0, false, 0},                 // -1 - -1
+		{[]int{10, 1, 12, 3, 7, 2, 2, 1}, 4, true, 1}, // 5 - 6
 	}
 	// we don't care about the idx. tc is value at idx. test is arg slice above
 	for _, tc := range tests {
@@ -63,8 +63,9 @@ func TestFindTwoThatSum(t *testing.T) {
 				// return err msg
 				t.Fatalf("FindTwoThatSum() = (%v, %v); sum = %v; want sum %v", i, j, got, tc.sum)
 			}
-			if i != tc.lowestVal {
-				t.Fatalf("Returned %v as first val idx. Expected %v.", i, tc.lowestVal)
+			idxDiff := j - i
+			if idxDiff != tc.lowestIdxDiff {
+				t.Fatalf("Returned %v as first val idx. Expected %v.", idxDiff, tc.lowestIdxDiff)
 			}
 		})
 	}
